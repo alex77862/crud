@@ -1,4 +1,4 @@
 <?php
-if (isset($_POST['connect'])) {
-    var_dump($_POST);
+if(isset($_POST['connect'])){
+    echo 'ok';
 }

@@ -12,6 +12,7 @@ header{
     box-shadow: 0 0 12px 8px rgb(56, 56, 56);
 }
 main{
+    min-height: 100vh;
     position: relative;
 }
 section{
@@ -33,6 +34,7 @@ section{
     box-shadow: 0 0 12px 2px rgb(90, 88, 88);
 
 }
+
 .new-car:hover{
     transform: scale(0.9);
 }
@@ -41,4 +43,16 @@ footer{
     background-color: #111;
     justify-content: center;
     color: azure;
+}
+
+
+.connect-form{
+    width: 50%;
+    border: 1px solid #222;
+    border-radius: 0.5rem;
+    background-color: rgba(119, 119, 119, 0.466);
+}
+.connect-form input{
+    width: 100%;
+    border-radius: 5px;
 }
