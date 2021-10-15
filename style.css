@@ -1,0 +1,41 @@
+body{
+    background-color: rgb(202, 202, 202);
+}
+.container{
+    position: relative;
+}
+.carousel{
+    border-radius: 1rem;
+    box-shadow: 0 0 12px 8px rgb(56, 56, 56);
+}
+main{
+    position: relative;
+}
+section{
+    min-height: 50vh;
+    position: relative;
+}
+.card{
+    box-shadow: 0 0 10px 3px #222;
+}
+.new-car{
+    display: block;
+    position: fixed;
+    width: 100px;
+    height: 100px;
+    right: 20px;
+    bottom: 20px;
+    padding: 1rem;
+    border-radius: 50%;
+    box-shadow: 0 0 12px 2px rgb(90, 88, 88);
+
+}
+.new-car:hover{
+    transform: scale(0.9);
+}
+footer{
+    min-height: 100px;
+    background-color: #111;
+    justify-content: center;
+    color: azure;
+}
