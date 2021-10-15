@@ -1,4 +1,7 @@
-<?php ?>
+<?php
+require 'config/config.php';
+require 'connection.php';
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -18,7 +21,7 @@
                 <a class="navbar-brand">Our garage</a>
                 <form class="d-flex">
                     <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                    <button class="btn btn-outline-info" type="submit">Connect</button>
+                    <button class="btn btn-outline-info" name="connect" type="submit">Connect</button>
                 </form>
             </div>
         </nav>
