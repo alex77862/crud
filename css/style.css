@@ -1,5 +1,9 @@
-body{
-    /* background-color: rgb(202, 202, 202); */
+a{
+    text-decoration: none;
+}
+.card img{
+    max-height: 150px;
+    object-fit:cover;
 }
 header{
     z-index: 100;
@@ -23,7 +27,6 @@ section{
     box-shadow: 0 0 10px 3px #222;
 }
 .new-car{
-    display: block;
     position: fixed;
     width: 100px;
     height: 100px;
@@ -31,12 +34,14 @@ section{
     bottom: 20px;
     padding: 1rem;
     border-radius: 50%;
+    color: aqua;
     box-shadow: 0 0 12px 2px rgb(90, 88, 88);
 
 }
 
 .new-car:hover{
     transform: scale(0.9);
+
 }
 footer{
     min-height: 100px;
@@ -55,4 +60,21 @@ footer{
 .connect-form input{
     width: 100%;
     border-radius: 5px;
+}
+
+.login{
+    background-color: #111;
+}
+.form-example input{
+    width: 60%;
+}
+#voitureDesc{
+    width: 60%;
+}
+input[type='file']{
+    /* color: transparent; */
+}
+.card-text{
+    max-height: 100px;
+    overflow-y: scroll;
 }
