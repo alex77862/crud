@@ -6,7 +6,7 @@ require './controllers/connection.php';
         <div class="container-fluid">
             <a href="index.php" class="navbar-brand">Our garage</a>
             <form class="d-flex" method="POST">
-                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                <input class="form-control me-2 w-50" type="search" placeholder="Search" aria-label="Search">
                 <?php if (!isset($_COOKIE['name'])) { ?>
                     <a href="login.php" class="btn btn-outline-info" name="connect" type="submit">Admin</a>
                 <?php } else { ?>

@@ -1,5 +1,4 @@
 <?php
-
 require './controllers/createController.php';
 ?>
 <!DOCTYPE html>
@@ -85,7 +84,7 @@ require './controllers/createController.php';
                 <input type="file" name="voitureImg">
             </div>
             <div class="form-example d-flex justify-content-center mt-4">
-            <input type="submit" name="voitureSubmit" value="Ajouter un véhicule" class="btn btn-info">
+                <input type="submit" name="voitureSubmit" value="Ajouter un véhicule" class="btn btn-info">
             </div>
             <?php
             if (isset($err)) { ?>
