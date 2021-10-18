@@ -1,0 +1,83 @@
+a{
+    text-decoration: none;
+}
+.card{
+    border: none;
+}
+.card img{
+    height: 200px;
+    object-fit:cover;
+}
+header{
+    z-index: 100;
+}
+.container{
+    position: relative;
+}
+.carousel{
+    border-radius: 1rem;
+    box-shadow: 0 0 12px 8px rgb(56, 56, 56);
+}
+main{
+    min-height: 100vh;
+    position: relative;
+}
+section{
+    min-height: 50vh;
+    position: relative;
+}
+.card{
+    box-shadow: 0 0 10px 3px #222;
+}
+.new-car{
+    position: fixed;
+    width: 100px;
+    height: 100px;
+    right: 20px;
+    bottom: 20px;
+    padding: 1rem;
+    border-radius: 50%;
+    color: aqua;
+    box-shadow: 0 0 12px 2px rgb(90, 88, 88);
+
+}
+
+.new-car:hover{
+    transform: scale(0.9);
+
+}
+footer{
+    min-height: 100px;
+    background-color: #111;
+    justify-content: center;
+    color: azure;
+}
+
+
+.connect-form{
+    width: 50%;
+    border: 1px solid #222;
+    border-radius: 0.5rem;
+    background-color: rgba(119, 119, 119, 0.466);
+}
+.connect-form input{
+    width: 100%;
+    border-radius: 5px;
+}
+
+.login{
+    background-color: #111;
+}
+.form-example input{
+    width: 60%;
+}
+#voitureDesc{
+    width: 60%;
+}
+input[type='file']{
+    /* color: transparent; */
+}
+.card-text{
+    max-height: 100px;
+    overflow-y: scroll;
+}
