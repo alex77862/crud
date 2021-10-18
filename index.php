@@ -5,6 +5,7 @@ require './controllers/connection.php';
 require './controllers/cars.php';
 require './controllers/update.php';
 require './controllers/bookCar.php';
+require 'delete.php';
 ?>
 <!DOCTYPE html>
 <?php require './includes/head.php'; ?>
@@ -36,8 +37,7 @@ require './controllers/bookCar.php';
 
                                     <form class="buttons d-flex gap-2" method="POST">
                                         <a href="edition.php?id=<?= $c['id']; ?>" class="btn btn-warning w-50" name="reservedCar">Modifier</a>
-                                        <!-- <button class="btn btn-warning w-50" value="<?= $c['id']; ?>" type="submit" name="reservedCar">Modifier</button> -->
-                                        <button class="btn btn-danger w-50" type="submit" value="<?= $c['id']; ?>" name="deleteCar">Supprimer</button>
+                                        <button class="btn btn-danger w-50" type="submit" name="deleteCar" value="<?= $c['id']; ?>">Supprimer</button>
                                     </form>
                                 </div>
                             </div>

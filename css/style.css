@@ -1,6 +1,9 @@
 a{
     text-decoration: none;
 }
+.card{
+    border: none;
+}
 .card img{
     height: 200px;
     object-fit:cover;
