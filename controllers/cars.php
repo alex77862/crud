@@ -8,3 +8,8 @@ try {
 } catch (\Throwable $th) {
     //throw $th;
 }
+try {
+    $allCars = $bdd->query('SELECT * from cars');
+} catch (\Throwable $th) {
+    //throw $th;
+}

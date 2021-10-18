@@ -3,7 +3,8 @@ session_start();
 require './config/config.php';
 require './controllers/connection.php';
 require './controllers/cars.php';
-require 'update.php';
+require './controllers/update.php';
+require './controllers/bookCar.php';
 ?>
 <!DOCTYPE html>
 <?php require './includes/head.php'; ?>
@@ -20,25 +21,27 @@ require 'update.php';
             <?php if (isset($_COOKIE['name']) && $_COOKIE['name'] === $admin) {
             ?>
                 <div class="row">
-                    <?php if(isset($msg)){ ?> <h2 class="mx-auto text-success"><?= $msg;?></h2> <?php } ?>
+                    <?php if (isset($msg)) { ?> <h2 class="mx-auto text-success"><?= $msg; ?></h2> <?php } ?>
                     <section class="cars d-flex flex-wrap justify-content-around">
-                        <?php foreach ($cars as $car) { ?>
+                        <?php foreach ($allCars as $c) { ?>
                             <div class="card m-3" style="width: 18rem;">
-                                <img src="media/pictures/<?= $car['img']; ?>" class="card-img-top" alt="...">
+                                <img src="media/pictures/<?= $c['img']; ?>" class="card-img-top" alt="...">
                                 <div class="card-body">
-                                    <h5 class="card-title"><?= $car['name']; ?></h5>
-                                    <h5 class="card-title"><?= $car['model']; ?></h5>
-                                    <h5 class="card-title">Engine: <?= $car['engine']; ?></h5>
-                                    <h5 class="card-title">Year: <?= $car['year']; ?></h5>
-                                    <p class="card-text"><b>Description:</b><br><?= $car['description']; ?></p>
+                                    <h5 class="card-title"><?= $c['name']; ?></h5>
+                                    <h5 class="card-title"><?= $c['model']; ?></h5>
+                                    <h5 class="card-title">Engine: <?= $c['engine']; ?></h5>
+                                    <h5 class="card-title">Year: <?= $c['year']; ?></h5>
+                                    <p class="card-text"><b>Description:</b><br><?= $c['description']; ?></p>
+                                    <p class="card-text"><b>Disponibilité:</b><br><?php if ($c['access'] == 1) { ?> <span class="text-success p-2"><?= 'Oui'; ?></span><?php } else { ?> <span class="text-warning"><?= 'Reservé'; ?></span><?php }; ?></p>
+
                                     <form class="buttons d-flex gap-2" method="POST">
-                                        <!-- <a href="index.php?id=<?= $car['id'];?>" class="btn btn-warning w-50" type="submit" name="reservedCar">Reserver</a> -->
-                                        <button class="btn btn-warning w-50" value="<?= $car['id'];?>" type="submit" name="reservedCar">Reserver</button>
-                                        <button class="btn btn-danger w-50" type="submit" name="deleteCar">Supprimer</button>
+                                        <a href="edition.php?id=<?= $c['id']; ?>" class="btn btn-warning w-50" name="reservedCar">Modifier</a>
+                                        <!-- <button class="btn btn-warning w-50" value="<?= $c['id']; ?>" type="submit" name="reservedCar">Modifier</button> -->
+                                        <button class="btn btn-danger w-50" type="submit" value="<?= $c['id']; ?>" name="deleteCar">Supprimer</button>
                                     </form>
                                 </div>
                             </div>
-                            <?php } ?>
+                        <?php } ?>
                     </section>
                 </div>
         </div>
@@ -48,7 +51,7 @@ require 'update.php';
             <div class="row">
                 <section class="cars d-flex flex-wrap justify-content-around">
                     <?php foreach ($cars as $car) { ?>
-                        <div class="card m-3" style="width: 18rem;">
+                        <form class="card m-3" style="width: 18rem;" method="POST">
                             <img src="media/pictures/<?= $car['img']; ?>" class="card-img-top" alt="...">
                             <div class="card-body">
                                 <h5 class="card-title"><?= $car['name']; ?></h5>
@@ -56,9 +59,9 @@ require 'update.php';
                                 <h5 class="card-title">Engine: <?= $car['engine']; ?></h5>
                                 <h5 class="card-title">Year: <?= $car['year']; ?></h5>
                                 <p class="card-text"><b>Description:</b><br><?= $car['description']; ?></p>
-                                <button class="btn btn-warning w-50 mx-auto" type="submit" name="reservedCar">Reserver</button>
+                                <button class="btn btn-warning w-50 mx-auto" value="<?= $car['id']; ?>" type="submit" name="bookCar">Reserver</button>
                             </div>
-                        </div>
+                        </form>
                     <?php } ?>
                 </section>
             </div>
