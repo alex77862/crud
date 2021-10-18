@@ -4,6 +4,7 @@ require './config/config.php';
 require './controllers/connection.php';
 require './controllers/cars.php';
 require 'update.php';
+require 'delete.php';
 ?>
 <!DOCTYPE html>
 <?php require './includes/head.php'; ?>
@@ -20,7 +21,7 @@ require 'update.php';
             <?php if (isset($_COOKIE['name']) && $_COOKIE['name'] === $admin) {
             ?>
                 <div class="row">
-                    <?php if(isset($msg)){ ?> <h2 class="mx-auto text-success"><?= $msg;?></h2> <?php } ?>
+                    <?php if (isset($msg)) { ?> <h2 class="mx-auto text-success"><?= $msg; ?></h2> <?php } ?>
                     <section class="cars d-flex flex-wrap justify-content-around">
                         <?php foreach ($cars as $car) { ?>
                             <div class="card m-3" style="width: 18rem;">
@@ -32,13 +33,14 @@ require 'update.php';
                                     <h5 class="card-title">Year: <?= $car['year']; ?></h5>
                                     <p class="card-text"><b>Description:</b><br><?= $car['description']; ?></p>
                                     <form class="buttons d-flex gap-2" method="POST">
-                                        <!-- <a href="index.php?id=<?= $car['id'];?>" class="btn btn-warning w-50" type="submit" name="reservedCar">Reserver</a> -->
-                                        <button class="btn btn-warning w-50" value="<?= $car['id'];?>" type="submit" name="reservedCar">Reserver</button>
-                                        <button class="btn btn-danger w-50" type="submit" name="deleteCar">Supprimer</button>
+                                        <!-- <a href="index.php?id=<?= $car['id']; ?>" class="btn btn-warning w-50" type="submit" name="reservedCar">Reserver</a> -->
+                                        <button class="btn btn-warning w-50" value="<?= $car['id']; ?>" type="submit" name="reservedCar">Reserver</button>
+                                        <button class="btn btn-danger w-50" type="submit" name="deleteCar" value="<?= $car['id']; ?>">Supprimer</button>
+                                        <!-- <a href="delete.php?id=<? $car['id'] ?>">Supprimer</a> -->
                                     </form>
                                 </div>
                             </div>
-                            <?php } ?>
+                        <?php } ?>
                     </section>
                 </div>
         </div>
