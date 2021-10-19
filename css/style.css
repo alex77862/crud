@@ -75,9 +75,15 @@ footer{
     width: 60%;
 }
 input[type='file']{
-    /* color: transparent; */
+    color: transparent;
+
 }
 .card-text{
     max-height: 100px;
     overflow-y: scroll;
+}
+#output{
+    display: block;
+    width: 100%;
+    object-fit: cover;
 }

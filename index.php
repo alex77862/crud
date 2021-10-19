@@ -5,7 +5,7 @@ require './controllers/connection.php';
 require './controllers/cars.php';
 require './controllers/update.php';
 require './controllers/bookCar.php';
-require 'delete.php';
+require './controllers/delete.php';
 ?>
 <!DOCTYPE html>
 <?php require './includes/head.php'; ?>
@@ -14,6 +14,10 @@ require 'delete.php';
     <?php
     require './includes/Header.php';
     ?>
+    <?php if(isset($_GET['search_field']) && !empty($_GET['search_field'])){
+        require './views/searchView.php';
+    } else {
+    ?>
     <main class="d-flex flex-column">
         <div class="container">
             <div class="row">
@@ -21,7 +25,7 @@ require 'delete.php';
             </div>
             <?php if (isset($_COOKIE['name']) && $_COOKIE['name'] === $admin) {
             ?>
-                <div class="row">
+                <div class="row mt-5">
                     <?php if (isset($msg)) { ?> <h2 class="mx-auto text-success"><?= $msg; ?></h2> <?php } ?>
                     <section class="cars d-flex flex-wrap justify-content-around">
                         <?php foreach ($allCars as $c) { ?>
@@ -47,7 +51,7 @@ require 'delete.php';
         </div>
         <a href="create.php" class="btn btn-dark new-car d-flex align-items-center justify-content-center" name="newCar">Add new car</a>
     <?php } else { ?>
-        <div class="container">
+        <div class="container mt-5">
             <div class="row">
                 <section class="cars d-flex flex-wrap justify-content-around">
                     <?php foreach ($cars as $car) { ?>
@@ -70,8 +74,9 @@ require 'delete.php';
             } ?>
     </main>
     <?php require './includes/Footer.php';
-    ?>
+    }?>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+    <!-- <script src="./js/index.js"></script> -->
 </body>
 
 </html>

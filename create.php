@@ -81,7 +81,10 @@ require './controllers/createController.php';
             </div>
             <div class="form-example d-flex justify-content-between">
                 <label for="voitureImg">IMG : </label>
-                <input type="file" name="voitureImg">
+                <input type="file" class="ms-auto" accept="image/*" onchange="loadFile(event)" name="voitureImg">
+                <div class="new-img">
+                    <img id="output" class="p-1 mx-auto">
+                </div>
             </div>
             <div class="form-example d-flex justify-content-center mt-4">
                 <input type="submit" name="voitureSubmit" value="Ajouter un véhicule" class="btn btn-info">
@@ -92,6 +95,7 @@ require './controllers/createController.php';
             <?php } ?>
         </form>
     </main>
+    <script src="js/index.js"></script>
 </body>
 
 </html>
