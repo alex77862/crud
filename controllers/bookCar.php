@@ -1,10 +1,6 @@
 <?php
-require './config/config.php';
+require './models/BookCarModel.php';
 if (isset($_POST['bookCar'])) {
-    $id = (int)$_POST['bookCar'];
-    $newValue = 0;
-    $updateCar = $bdd->prepare('UPDATE cars SET access = ? where id = ?');
-    $updateCar->execute(array($newValue, $id));
-    header("location:index.php");
+    bookCar();
     $msg = 'Votre voiture vous attend!!!';
 }

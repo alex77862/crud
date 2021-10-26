@@ -3,7 +3,7 @@ require './controllers/connection.php';
 require './includes/head.php'; ?>
 
 <body>
-    <main class="d-flex flex-column align-items-center text-center login">
+    <main class="d-flex flex-column align-items-center text-center login h-100 m-0">
         <form class="d-flex flex-column gap-2 align-items-start text-center my-auto connect-form m-3 p-5" action="#" method="POST">
             <h2 class="mx-auto text-info">LogIn</h2>
             <label for="nickname" class="text-info">Identifiant admin:</label>

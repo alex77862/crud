@@ -1,34 +1,93 @@
 a{
     text-decoration: none;
+    color:#111
 }
-.card{
-    border: none;
+a:hover{
+    color: rgb(2, 233, 250);
 }
-.card img{
-    height: 200px;
-    object-fit:cover;
-}
-header{
-    z-index: 100;
-}
-.container{
+body{
+    width: 100%;
+    background-color: #212529;
     position: relative;
-}
-.carousel{
-    border-radius: 1rem;
-    box-shadow: 0 0 12px 8px rgb(56, 56, 56);
 }
 main{
-    min-height: 100vh;
-    position: relative;
+    /* min-height: 100vh; */
+    /* position: relative; */
+    padding: 0 1.3rem;
+    /* margin-top: 100px; */
 }
 section{
     min-height: 50vh;
     position: relative;
 }
-.card{
-    box-shadow: 0 0 10px 3px #222;
+footer{
+    min-height: 100px;
+    background-color: #111;
+    justify-content: center;
+    color: azure;
 }
+                                                                    /* ======== HEADER ======= */
+.header{
+    position: fixed;
+    top: 0;
+    z-index: 1000;
+    transition: 0.6s cubic-bezier(0.47, 0, 0.75, 0.72);
+}
+.header.active {
+    max-height: 75px;
+    background: #21252A;
+    z-index: 100;
+    transition: all 0.2s ease-in-out;
+}
+.dropdown-menu[data-bs-popper]{
+    background: rgb(27, 27, 27);
+    right: 0;
+}
+.dropdown-item{
+    color: orange;
+}
+.dropdown-item:hover{
+    color:rgb(185, 121, 0);
+}
+                                    /* ================== main page ============== */
+.card{
+    border: none;
+}
+.card>a>img{
+    height: 200px;
+    object-fit:cover;
+}
+.container{
+    position: relative;
+}
+.cause1{
+    background: center/cover no-repeat url('../images/garage.jpeg');
+}
+.cause2{
+    background: center/cover no-repeat url('../images/mechanic.jpeg');
+}
+.cause3{
+    background: center/cover no-repeat url('../images/mobile.jpeg');
+}
+                                                    /* ================== CAROUSEL ============== */
+.carousel{
+    box-shadow: 0 0 4px 2px rgb(56, 56, 56);
+    z-index: -100;
+}
+.carousel-inner{
+    height: 100%;
+}
+.carousel-item{
+    height: 100%;
+    position: relative;
+}
+.carousel-item img{
+    height: 100%;
+    object-fit:cover;
+    transition: 0.8s all ease-in-out;
+    z-index: -100;
+}
+                                                    /* ================== Create Car ============== */
 .new-car{
     position: fixed;
     width: 100px;
@@ -39,21 +98,17 @@ section{
     border-radius: 50%;
     color: aqua;
     box-shadow: 0 0 12px 2px rgb(90, 88, 88);
-
 }
-
+.form-example>input{
+    width: 60%;
+}
+.form-example>select{
+    width: 60%;
+}
 .new-car:hover{
     transform: scale(0.9);
-
 }
-footer{
-    min-height: 100px;
-    background-color: #111;
-    justify-content: center;
-    color: azure;
-}
-
-
+                                                    /* ================== LOGIN ============== */
 .connect-form{
     width: 50%;
     border: 1px solid #222;
@@ -64,26 +119,66 @@ footer{
     width: 100%;
     border-radius: 5px;
 }
-
 .login{
     background-color: #111;
+    margin-top: 50px;
 }
-.form-example input{
-    width: 60%;
-}
+                                                /* ================== one car ============== */
 #voitureDesc{
     width: 60%;
 }
 input[type='file']{
     color: transparent;
-
 }
 .card-text{
     max-height: 100px;
     overflow-y: scroll;
 }
+.one-car-body{
+    width: 100%;
+}
+/* .img-card{
+    width: 45%;
+    object-fit: cover;
+} */
 #output{
     display: block;
     width: 100%;
     object-fit: cover;
+}
+.cat-item{
+    max-height: 500px;
+}
+.cat-button{
+    height: fit-content;
+}
+.cat-img{
+    width: 100%;
+    object-fit: cover;
+}
+.logo{
+    height: 50px;
+}
+                                            /* ================== Reserved car ============== */
+.booked{
+    position: relative;
+}
+.booked-car{
+    z-index: -1;
+}
+.booked-text{
+    position: absolute;
+    width: 100%;
+    background-color: rgb(180, 154, 168);
+    top:50%;
+    z-index: 2;
+    transform: rotate(37deg);
+}
+                                             /* ================== all Cars ============== */
+.all-cars{
+    font-size: 1.5rem;
+    transition: 0.7s;
+}
+.all-cars:hover{
+    transform: scale(0.9);
 }

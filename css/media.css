@@ -1,0 +1,12 @@
+@media (max-width: 758px){
+    .card{
+        display: flex;
+        flex-direction: column;
+    }
+    .img-card{
+        width: 100%;
+    }
+    .one-car-body{
+        width: 100%;
+    }
+}

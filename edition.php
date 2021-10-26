@@ -1,18 +1,13 @@
 <?php
-require './controllers/update.php';
+require __DIR__ . '/controllers/update.php';
 ?>
 <!DOCTYPE html>
-<?php require './includes/head.php'; ?>
-
+<?php require __DIR__ . '/includes/head.php'; ?>
 
 <body>
-    <?php require './includes/Header.php'; ?>
-    <?php
-
-    ?>
-
+    <?php require __DIR__ . '/includes/Header.php'; ?>
     <main class="d-flex align-items-center text-center login p-5">
-        <form method="POST" class="formCreate d-flex text-info flex-column mx-auto gap-2 w-50" enctype="multipart/form-data">
+        <form method="POST" class="formCreate d-flex text-info flex-column mx-auto gap-2 p-5 w-50" enctype="multipart/form-data">
             <div class="form-example d-flex justify-content-between">
                 <label for="voitureName">Nom : </label>
                 <input type="text" name="voitureName" id="voitureName" value="<?= $updateCar['name']; ?>" required>
@@ -28,6 +23,22 @@ require './controllers/update.php';
             <div class="form-example d-flex justify-content-between">
                 <label for="voitureYear">Année : </label>
                 <input type="number" name="voitureYear" id="voitureYear" value="<?= $updateCar['year']; ?>" required>
+            </div>
+            <div class="form-example d-flex justify-content-between">
+                <label for="gearBox">Boite de vitesse : </label>
+                <input type="text" name="gearBox" id="gearBox" value="<?= $updateCar['gearbox']; ?>" required>
+            </div>
+            <div class="form-example d-flex justify-content-between">
+                <label for="doors">Nombre de portiéres : </label>
+                <input type="number" name="doors" id="doors" value="<?= $updateCar['doors']; ?>" required>
+            </div>
+            <div class="form-example d-flex justify-content-between">
+                <label for="seats">Nombre de sie2ges : </label>
+                <input type="number" name="seats" id="seats" value="<?= $updateCar['seats']; ?>" required>
+            </div>
+            <div class="form-example d-flex justify-content-between">
+                <label for="luggage">Capacité de coffre (en sacs) : </label>
+                <input type="number" name="luggage" id="luggage" value="<?= $updateCar['luggage']; ?>" required>
             </div>
             <div class="form-example d-flex justify-content-between">
                 <label for="voitureDesc">Description : </label>
@@ -56,7 +67,6 @@ require './controllers/update.php';
         </form>
     </main>
     <script src="./js/index.js">
-       
     </script>
 </body>
 

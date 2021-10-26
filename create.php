@@ -1,64 +1,13 @@
 <?php
-require './controllers/createController.php';
+require __DIR__ . '/controllers/createController.php';
 ?>
 <!DOCTYPE html>
-<?php require './includes/head.php'; ?>
+<?php require __DIR__ . '/includes/head.php'; ?>
 
-
-<body>
-    <?php require './includes/Header.php'; ?>
-    <?php
-    // var_dump($_FILES['voitureImg']['name']);
-    // $ipServerSQL = "";
-    // $nomBase = "voiture";
-    // $userLog = "JeanPaul";
-    // $userPass = "afp13";
-
-    // try {
-    //     $basePDO = new PDO("mysql:host" . $ipServerSQL . ";dbname=" . $nomBase . ";port=3306", $userLog, $userPass);
-    // } catch (Exception $e) {
-    //     echo $e->getMessage();
-    // }
-
-    // // try {
-    //     var_dump($_POST);
-    //     $bdd = new PDO('mysql:host=localhost;dbname=garage', 'root', 'root');
-    //     if (isset($_POST["voitureSubmit"])) {
-    //         if (!empty($_POST["voitureName"]) && !empty($_POST["voitureModel"]) && !empty($_POST["voitureMoteur"]) && !empty($_POST["voitureYear"]) && !empty($_POST["voitureDesc"]) && !empty($_POST["voitureImg"])) {
-    //             $voitureName = htmlspecialchars($_POST["voitureName"]);
-    //             $voitureNameLength = strlen($voitureName);
-    //             $voitureModel = htmlspecialchars($_POST["voitureModel"]);
-    //             $voitureModelLength = strlen($voitureModel);
-    //             $voitureMoteur = htmlspecialchars($_POST["voitureMoteur"]);
-    //             $voitureMoteurLength = strlen($voitureMoteur);
-    //             $voitureYear = htmlspecialchars($_POST["voitureYear"]);
-    //             $voitureDesc = htmlspecialchars($_POST["voitureDesc"]);
-
-    //             $voitureImg = htmlspecialchars($_POST["voitureImg"]);
-    //             if ($voitureNameLength <= 30 && $voitureModelLength <= 30 && $voitureMoteurLength <= 30) {
-
-    //                 $insertCars = $bdd->prepare('INSERT INTO cars (name, model, engine, year, description, img) VALUES (?, ?, ?, ?, ?, ?)');
-    //                 $insertCars->execute(array($voitureName, $voitureModel, $voitureMoteur, $voitureYear, $voitureDesc, $voitureImg));
-    //                 echo 'ok';
-    //                 // header('Location:index.php?id=' . $_SESSION['id']);
-    //                 // $RequetStatement = $bdd->query($req);
-    //             } else {
-    //                 $err = 'Le nom, modele et type de moteur ne peuvent pas depasser 30 caracteres';
-    //             }
-    //         }
-
-
-    //         $error = 'On dirait que ça plante';
-    //     }
-    // // } catch (PDOException $e) {
-    // //     //throw $th;
-    // //     echo $e->getMessage();
-    // //     exit;
-    // // }
-    ?>
-
-    <main class="d-flex align-items-center text-center login">
-        <form method="POST" class="formCreate d-flex text-info flex-column mx-auto gap-2 w-50" enctype="multipart/form-data">
+<body class="">
+    <?php require __DIR__ . '/includes/Header.php'; ?>
+    <main class="d-flex align-items-center text-center mt-5 login h-100 p-5">
+        <form method="POST" class="formCreate d-flex text-info flex-column mt-5 mx-auto gap-2 w-50" enctype="multipart/form-data">
             <div class="form-example d-flex justify-content-between">
                 <label for="voitureName">Nom : </label>
                 <input type="text" name="voitureName" id="voitureName" required>
@@ -74,6 +23,33 @@ require './controllers/createController.php';
             <div class="form-example d-flex justify-content-between">
                 <label for="voitureYear">Année : </label>
                 <input type="number" name="voitureYear" id="voitureYear" required>
+            </div>
+            <div class="form-example d-flex justify-content-between">
+                <label for="voitureCategorie">Categorie : </label>
+                <select name="voitureCategorie" id="voitureCategorie">
+                    <option value="berline">Berline</option>
+                    <option value="suv">SUV</option>
+                    <option value="coupe">Coupé</option>
+                    <option value="4x4">4x4</option>
+                    <option value="citadine">Citadine</option>
+                    <option value="electrique">Electrique</option>
+                </select>
+            </div>
+            <div class="form-example d-flex justify-content-between">
+                <label for="gearBox">Boite de vitesse : </label>
+                <input type="text" name="gearBox" id="gearBox" required>
+            </div>
+            <div class="form-example d-flex justify-content-between">
+                <label for="doors">Nombre de portiéres : </label>
+                <input type="number" name="doors" id="doors" required>
+            </div>
+            <div class="form-example d-flex justify-content-between">
+                <label for="seats">Nombre de sie2ges : </label>
+                <input type="number" name="seats" id="seats" required>
+            </div>
+            <div class="form-example d-flex justify-content-between">
+                <label for="luggage">Capacité de coffre (en sacs) : </label>
+                <input type="number" name="luggage" id="luggage" required>
             </div>
             <div class="form-example d-flex justify-content-between">
                 <label for="voitureDesc">Description : </label>
@@ -95,6 +71,8 @@ require './controllers/createController.php';
             <?php } ?>
         </form>
     </main>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+
     <script src="js/index.js"></script>
 </body>
 

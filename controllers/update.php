@@ -1,7 +1,9 @@
 <?php
 require './config/config.php';
+require 'inputControl.php';
+$bdd = connexion();
 if (isset($_GET['id'])) {
-    if ($_COOKIE['name'] === $admin) {
+    if ($_COOKIE['name']) {
         $id = (int)$_GET['id'];
         $updateCar = $bdd->prepare('SELECT * from cars where id = ?');
         $updateCar->execute(array($_GET['id']));
@@ -10,15 +12,15 @@ if (isset($_GET['id'])) {
 }
 if (isset($_POST['voitureUpdate'])) {
     if (isset($_POST['voitureName'], $_POST['voitureModel'], $_POST['voitureMoteur'], $_POST['voitureYear'], $_POST['voitureDesc'], $_POST['voitureDisp']) && !empty($_POST['voitureName']) && !empty($_POST['voitureModel']) && !empty($_POST['voitureMoteur']) && !empty($_POST['voitureYear']) && !empty($_POST['voitureDesc']) && !empty($_POST['voitureDisp'])) {
-        $voitureName = htmlspecialchars($_POST['voitureName']);
+        $voitureName = test_input($_POST['voitureName']);
         $nameLength = mb_strlen($voitureName);
-        $voitureModel = htmlspecialchars($_POST["voitureModel"]);
+        $voitureModel = test_input($_POST["voitureModel"]);
         $voitureModelLength = mb_strlen($voitureModel);
-        $voitureMoteur = htmlspecialchars($_POST["voitureMoteur"]);
+        $voitureMoteur = test_input($_POST["voitureMoteur"]);
         $voitureMoteurLength = mb_strlen($voitureMoteur);
-        $voitureYear = htmlspecialchars($_POST["voitureYear"]);
-        $voitureDesc = htmlspecialchars($_POST["voitureDesc"]);
-        $voitureDisp = htmlspecialchars($_POST['voitureDisp']);
+        $voitureYear = test_input($_POST["voitureYear"]);
+        $voitureDesc = test_input($_POST["voitureDesc"]);
+        $voitureDisp = test_input($_POST['voitureDisp']);
         if ($nameLength < 30 && $voitureModelLength < 30 && $voitureMoteurLength < 30) {
             $updateInfo = $bdd->prepare('UPDATE cars SET name = ?, model = ?, engine = ?, year = ?, description = ?, access = ? where id = ?');
             $updateInfo->execute(array($voitureName, $voitureModel, $voitureMoteur, $voitureYear, $voitureDesc, $voitureDisp, $_GET['id']));
@@ -26,7 +28,7 @@ if (isset($_POST['voitureUpdate'])) {
             header('Location: index.php');
         }
     } else {
-        var_dump('Tous remplire');
+        $err = 'Remlissez tous les champs';
     }
 }
 if (isset($_FILES['voitureImg']) && !empty($_FILES['voitureImg']['name'])) {
